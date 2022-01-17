@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eghojansu/cosiler.git",
-                "reference": "561bbd83cdb0de85a6050a1bbe0b7b24f3dbdade"
+                "reference": "2012432e9e32eae87889fe47d46c8bd378d3747f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eghojansu/cosiler/zipball/561bbd83cdb0de85a6050a1bbe0b7b24f3dbdade",
-                "reference": "561bbd83cdb0de85a6050a1bbe0b7b24f3dbdade",
+                "url": "https://api.github.com/repos/eghojansu/cosiler/zipball/2012432e9e32eae87889fe47d46c8bd378d3747f",
+                "reference": "2012432e9e32eae87889fe47d46c8bd378d3747f",
                 "shasum": ""
             },
             "require": {
@@ -64,7 +64,7 @@
                 "issues": "https://github.com/eghojansu/cosiler/issues",
                 "source": "https://github.com/eghojansu/cosiler/tree/dev"
             },
-            "time": "2022-01-14T06:49:29+00:00"
+            "time": "2022-01-17T10:01:47+00:00"
         },
         {
             "name": "ekok/php-container",
@@ -262,5 +262,5 @@
         "php": ">=8"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.0.0"
 }
