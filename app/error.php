@@ -1,10 +1,12 @@
 <?php
 
 use Ekok\Cosiler\Http\HttpException;
+use Ekok\Validation\ValidationException;
 
-use function Ekok\Cosiler\Http\Response\start;
+use function Ekok\Cosiler\Http\Response\back;
 use function Ekok\Cosiler\Http\status;
 use function Ekok\Cosiler\Template\load;
+use function Ekok\Cosiler\Http\Response\start;
 
 try {
     handleError($error);
@@ -21,7 +23,13 @@ function handleError(Throwable $error) {
     );
 
     if ($dev) {
-        $data['trace'] = array_filter(array_map('format_frame', $error->getTrace()));
+        $data['trace'] = array_filter(array_map('format_trace_frame', $error->getTrace()));
+    }
+
+    if ($error instanceof ValidationException) {
+        errorCommit($data['message'], $error->result->getErrors());
+        dataCommit($error->result->getData());
+        back();
     }
 
     start($code);

@@ -11,5 +11,6 @@ return array(
         'dsn' => 'mysql:host=localhost;dbname=db_apps',
         'username' => 'root',
         'password' => null,
+        'options' => null,
     ),
 );
