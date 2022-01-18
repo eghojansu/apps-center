@@ -24,4 +24,5 @@ if (!$found['active']) {
 
 userCommit($found['userid']);
 messageCommit('Welcome back');
+dataCommit();
 back();

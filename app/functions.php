@@ -96,8 +96,8 @@ function data() {
     return flash('data');
 }
 
-function dataCommit(array $data) {
-    session('data', $data);
+function dataCommit(array $data = null) {
+    session('data', $data ?? array());
 }
 
 function validate(array $rules, array $data = null) {

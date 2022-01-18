@@ -13,12 +13,12 @@ $data = validate(array(
   'active' => 'required|in:on,off',
   'description' => 'trim|nullable|max:100',
 ));
-dataCommit($data);
 
 $found = $fun['db']->selectOne('apps', array('appsid = ?', $data['appsid']));
 $user = user();
 
 if ($found) {
+  dataCommit($data);
   errorCommit('Application exists!');
   back();
 }
