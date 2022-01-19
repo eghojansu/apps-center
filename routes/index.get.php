@@ -35,20 +35,22 @@ $max = count($apps) - 1;
         </div>
         <div class="card-footer d-flex justify-content-between">
           <div class="btn-toolbar" role="toolbar" aria-label="Left toolbar">
-            <div class="btn-group" role="group" aria-label="Crud control">
-              <?php if ($app['deleted_at']): ?>
-                <a onclick="return confirm('Are you sure RESTORE this app?')" href="<?= $guest ? '#' : path('app-restore/' . $app['appsid']) ?>" class="btn btn-info <?= $guest ? 'disabled' : null ?>">
-                  Restore <i class="bi-arrow-clockwise"></i>
-                </a>
-              <?php else: ?>
-                <a onclick="return confirm('Are you sure DELETE this app?')" href="<?= $guest ? '#' : path('app-remove/' . $app['appsid']) ?>" class="btn btn-danger <?= $guest ? 'disabled' : null ?>">
-                  Remove <i class="bi-trash"></i>
-                </a>
-                <a href="<?= $guest ? '#' : path('app-edit/' . $app['appsid']) ?>" class="btn btn-warning <?= $guest ? 'disabled' : null ?>">
-                  Edit <i class="bi-pencil"></i>
-                </a>
-              <?php endif ?>
-            </div>
+            <?php if ($user): ?>
+              <div class="btn-group" role="group" aria-label="Crud control">
+                <?php if ($app['deleted_at']): ?>
+                  <a onclick="return confirm('Are you sure RESTORE this app?')" href="<?= $guest ? '#' : path('app-restore/' . $app['appsid']) ?>" class="btn btn-info <?= $guest ? 'disabled' : null ?>">
+                    Restore <i class="bi-arrow-clockwise"></i>
+                  </a>
+                <?php else: ?>
+                  <a onclick="return confirm('Are you sure DELETE this app?')" href="<?= $guest ? '#' : path('app-remove/' . $app['appsid']) ?>" class="btn btn-danger <?= $guest ? 'disabled' : null ?>">
+                    Remove <i class="bi-trash"></i>
+                  </a>
+                  <a href="<?= $guest ? '#' : path('app-edit/' . $app['appsid']) ?>" class="btn btn-warning <?= $guest ? 'disabled' : null ?>">
+                    Edit <i class="bi-pencil"></i>
+                  </a>
+                <?php endif ?>
+              </div>
+            <?php endif ?>
             <?php if ($user && !$app['deleted_at']): ?>
               <div class="btn-group ms-2" role="group" aria-label="Priority control">
                 <a href="<?= 0 == $app['priority'] ? '#' : path('app-priority/' . $app['appsid'] . '?dir=down') ?>" class="btn btn-secondary <?= 0 == $app['priority'] ? 'disabled' : null ?>">
