@@ -14,7 +14,6 @@ $data = validate(array(
   'active' => 'required|in:on,off',
   'description' => 'trim|nullable|max:100',
 ));
-dataCommit($data);
 
 $user = user();
 
