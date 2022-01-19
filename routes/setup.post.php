@@ -1,9 +1,15 @@
 <?php
 
 use function Ekok\Cosiler\Http\not_found;
+use function Ekok\Cosiler\Http\Response\back;
 use function Ekok\Cosiler\Http\Response\redirect;
 
 !is_file($versionFile = $fun['tmp_dir'] . '/version.txt') || not_found();
+
+if (!is_writable(dirname($versionFile))) {
+  errorCommit('Temp directory is not writable');
+  back();
+}
 
 /** @var PDO */
 $pdo = $fun['db']->getPdo();
